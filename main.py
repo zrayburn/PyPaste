@@ -21,7 +21,8 @@ def decrypt(url, key):
 def post(pastedata):
     data = [
         ('paste', encrypt(pastedata)),
-        ('shorturl', 'yes'),
+        ('shorturl', 'yes',
+         'lifetime', '259200'),
     ]
     response = requests.post('https://defuse.ca/bin/add.php', data=data)
     location: str = response.url
